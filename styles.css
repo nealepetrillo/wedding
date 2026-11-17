@@ -120,6 +120,11 @@ li { margin: .15rem 0; }
 }
 a.button:hover { background: var(--teal); color: var(--paper); }
 .button.static { cursor: default; }
+.button.outline { background: transparent; color: var(--wine); box-shadow: inset 0 0 0 1px var(--wine); }
+a.button.outline:hover { background: var(--wine); color: var(--paper); }
+.btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
+h3 a { text-decoration: none; }
+.respond { font-family: var(--sans); font-size: .85rem; letter-spacing: .18em; text-transform: uppercase; color: var(--teal); margin: 1.4rem 0 0; }
 
 /* FAQ */
 .faq { max-width: 720px; }
