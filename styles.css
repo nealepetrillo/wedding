@@ -1,0 +1,151 @@
+/* Self-hosted fonts (SIL Open Font License) */
+@font-face { font-family: "Cormorant Garamond"; src: url("fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; src: url("fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Jost"; src: url("fonts/jost-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Jost"; src: url("fonts/jost-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+
+/* Matches the 5x7 invitation: cream paper, burgundy type and frame,
+   watercolor florals with a teal ribbon. */
+:root {
+  --wine: #6d021d;      /* type + frame on the invitation */
+  --red: #a51111;
+  --plum: #40154f;
+  --cream: #ffdfb7;
+  --paper: #fdfaf4;     /* invitation background */
+  --tint: #f8efe4;
+  --white: #ffffff;
+  --teal: #3d6567;      /* ribbon */
+  --gold: #b08d57;
+  --muted: #7a5a62;
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--wine);
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--wine); text-decoration-color: var(--teal); text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+
+/* Nav */
+.nav {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; justify-content: center; flex-wrap: wrap; gap: .4rem 1.8rem;
+  padding: .8rem 1rem;
+  background: rgba(253, 250, 244, .95);
+  border-bottom: 1px solid rgba(109, 2, 29, .25);
+  backdrop-filter: blur(6px);
+}
+.nav a {
+  font-family: var(--sans); font-size: .78rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--wine); text-decoration: none;
+}
+.nav a:hover { color: var(--teal); }
+
+/* Hero — the invitation, as a page */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: calc(100vh - 48px);
+  display: grid; place-items: center;
+  padding: clamp(10rem, 22vw, 15rem) 1.5rem clamp(10rem, 22vw, 15rem);
+}
+.frame {
+  position: absolute; inset: clamp(18px, 3vw, 36px);
+  border: 2px solid var(--wine);
+  pointer-events: none;
+}
+.fl { position: absolute; pointer-events: none; height: auto; }
+.fl-tl { top: 0; left: 0; width: clamp(300px, 52vw, 720px); }
+.fl-br { bottom: 0; right: 0; width: clamp(300px, 52vw, 720px); }
+
+.hero-text { position: relative; z-index: 2; text-align: center; max-width: 760px; }
+.invite { font-size: clamp(1.3rem, 2.6vw, 2rem); margin: 0 0 1rem; }
+h1 { margin: 0 0 1.4rem; font-weight: 500; line-height: 1; }
+.name { display: block; font-size: clamp(2.8rem, 8vw, 5.4rem); letter-spacing: .01em; }
+.amp-row { display: flex; align-items: center; justify-content: center; gap: .9rem; margin: .1em 0; }
+.amp-row .line { flex: 0 1 220px; height: 2px; background: var(--wine); }
+.amp { font-family: var(--sans); font-size: clamp(1.6rem, 3.6vw, 2.6rem); font-weight: 400; }
+.date, .time { font-family: var(--sans); font-size: clamp(1.35rem, 3.4vw, 2.3rem); margin: 0; line-height: 1.4; }
+.venue-caps { text-transform: uppercase; letter-spacing: .06em; font-size: clamp(1.3rem, 2.8vw, 1.9rem); margin: 1rem 0 0; }
+.addr { font-size: clamp(1.15rem, 2.5vw, 1.7rem); margin: 0 0 .6rem; }
+.follow { font-size: clamp(1.3rem, 2.8vw, 2rem); margin: 0; }
+
+/* Sections */
+section { padding: 5rem 1.5rem; }
+section > * { max-width: 960px; margin-left: auto; margin-right: auto; }
+.tinted { background: var(--tint); }
+
+h2 {
+  font-family: var(--sans); font-weight: 500; text-align: center;
+  font-size: 1rem; letter-spacing: .3em; text-transform: uppercase; color: var(--wine);
+  margin-top: 0; margin-bottom: .7rem;
+}
+.rule { width: 70px; height: 2px; background: var(--teal); margin: 0 auto 2.5rem; }
+h3 { font-weight: 600; font-size: 1.5rem; color: var(--wine); margin: 0 0 .4rem; }
+.lede { text-align: center; max-width: 660px; font-size: 1.35rem; margin-bottom: 2.5rem; }
+.when { font-family: var(--sans); font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin: 0 0 .6rem; }
+.note { font-style: italic; color: var(--muted); font-size: 1.08rem; }
+.small-head {
+  font-family: var(--sans); font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--teal); margin: 1rem 0 .2rem;
+}
+ul { padding-left: 1.1rem; margin: .2rem 0; }
+li { margin: .15rem 0; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.event { text-align: center; }
+.where { text-align: center; max-width: 640px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.card { background: var(--paper); border: 1px solid rgba(109, 2, 29, .3); padding: 1.6rem; }
+#todo .card { background: var(--white); }
+.card p { margin: .2rem 0; }
+
+.button {
+  display: inline-block; font-family: var(--sans); font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--paper); background: var(--wine); padding: .75rem 1.5rem; text-decoration: none;
+}
+a.button:hover { background: var(--teal); color: var(--paper); }
+.button.static { cursor: default; }
+
+/* FAQ */
+.faq { max-width: 720px; }
+.faq dt { font-weight: 600; font-size: 1.32rem; margin-top: 1.6rem; }
+.faq dd { margin: .3rem 0 0; color: #4a2a32; }
+
+/* Gifts */
+.pay { display: flex; justify-content: center; flex-wrap: wrap; gap: 3rem; }
+.pay-item { text-align: center; }
+.pay-item p { margin: .3rem 0; }
+.pay-item img { margin: 0 auto 1rem; border: 1px solid rgba(109, 2, 29, .35); padding: 8px; background: var(--paper); }
+.handle { font-size: 1rem; color: var(--muted); }
+.handle.small { font-size: .92rem; font-style: italic; }
+.center { text-align: center; margin-top: 2rem; }
+
+footer {
+  text-align: center; padding: 2.5rem 1rem; background: var(--wine); color: var(--paper);
+  font-family: var(--sans); font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+}
+footer p { margin: 0; }
+
+@media (max-width: 720px) {
+  body { font-size: 1.12rem; }
+  section { padding: 3.5rem 1.2rem; }
+  .two-col { grid-template-columns: 1fr; gap: 2rem; }
+  .hero { padding: 13rem 1.2rem 12rem; }
+  .fl-tl, .fl-br { width: 78vw; }
+  .amp-row .line { flex-basis: 70px; }
+}
